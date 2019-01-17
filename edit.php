@@ -2,22 +2,14 @@
     include("dbconnection.php");
 ?>
 <!-- create form -->
-<form action="create.php" method="post">
-        <?php
-            session_start();
-            if(isset($_SESSION['response_message'])) {
-                echo $_SESSION['response_message'];
-                unset($_SESSION['response_message']);
-            }
-        ?>
-        <h3>Registration Form</h3>
-        <p>FirstName: <input type="text" name="firstname" placeholder="First Name"></p>
-        <p>LastName: <input type="text" name="lastname" placeholder="Last Name"></p>
-        <p>Email: <input type="text" name="email" placeholder="Type your email"></p>
-        <p>Address: <textarea name="address" placeholder="Type your address"></textarea></p>
-        <input type="submit" name="savedata" value="Save Data" />
-    </form>
-
+<form action="update.php" method="post">
+    <?php
+        session_start();
+        if(isset($_SESSION['response_message'])) {
+            echo $_SESSION['response_message'];
+            unset($_SESSION['response_message']);
+        }
+    ?>
     <?php
         if(isset($_GET['id']) && $_GET['id'] != 0) {
             $id = mysqli_real_escape_string($conn, $_GET['id']);
